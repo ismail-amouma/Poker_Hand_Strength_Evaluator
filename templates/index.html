@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Poker Hand Strength Evaluator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333;
+            color: #fff;
+            margin: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 25px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label {
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            width: 100%;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+        .result {
+            text-align: center;
+            padding: 10px;
+            background-color: #eee;
+            margin-top: 20px;
+            border-radius: 20px;
+        }
+        .error {
+            color: red;
+        }
+        .guide {
+            font-size: 14px;
+            margin-top: 10px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Poker Hand Strength Evaluator!</h1>
+    <div class="container">
+        <form method="post" action="/">
+            <label for="hand1">Enter your first poker hand:</label>
+            <input type="text" id="hand1" name="hand1" value="{{ hand1_input }}"  required placeholder="Example: 2H 4D 6S 8C AD">
+            <label for="hand2">Enter your second poker hand:</label>
+            <input type="text" id="hand2" name="hand2" value="{{ hand2_input }}" required placeholder="Example: 2H 4D 6S 8C AD">
+            <input type="submit" value="Compare Hands">
+        </form>
+
+        {% if result %}
+            <div class="result">
+                <h2>Result: {{ result }}</h2>
+            </div>
+        {% endif %}
+
+        {% if error_message %}
+            <div class="result error">
+                <h2>{{ error_message }}</h2>
+            </div>
+        {% endif %}
+
+        <!-- Explanation of Card Notation -->
+        <div class="guide">
+            <h2>Card Notation Guide</h2>
+            <p style="margin-bottom: 5px;"><strong>In poker notation, each card is represented by a combination of rank and suit.</strong></p>
+            <p style="margin-bottom: 5px;">The rank of the card is represented by a number or letter:</p>
+            <ul style="margin-bottom: 15px;">
+                <li><strong>2</strong> stands for the number 2</li>
+                <li><strong>3</strong> stands for the number 3</li>
+                <li><strong>4</strong> stands for the number 4</li>
+                <li>... and so on up to <strong>10</strong></li>
+                <li><strong>T</strong> stands for 10 (commonly used in notation)</li>
+                <li><strong>J</strong> stands for Jack</li>
+                <li><strong>Q</strong> stands for Queen</li>
+                <li><strong>K</strong> stands for King</li>
+                <li><strong>A</strong> stands for Ace</li>
+            </ul>
+            <p style="margin-bottom: 5px;">The suit of the card is represented by the first letter of the suit:</p>
+            <ul style="margin-bottom: 15px;">
+                <li><strong>H</strong> stands for Hearts</li>
+                <li><strong>D</strong> stands for Diamonds</li>
+                <li><strong>S</strong> stands for Spades</li>
+                <li><strong>C</strong> stands for Clubs</li>
+            </ul>
+            <p style="margin-bottom: 5px;">Combine the rank and suit to represent a card. For example:</p>
+            <ul>
+                <li><strong>2H</strong> stands for the 2 of Hearts</li>
+                <li><strong>3D</strong> stands for the 3 of Diamonds</li>
+                <li><strong>6S</strong> stands for the 6 of Spades</li>
+                <li><strong>8C</strong> stands for the 8 of Clubs</li>
+                <li><strong>AD</strong> stands for the Ace of Diamonds</li>
+            </ul>
+            <p style="margin-top: 5px;">Use this notation to enter your poker hands in the input boxes above.</p>
+        </div>
+        <!-- End of Card Notation Guide -->
+    </div>
+</body>
+</html>
