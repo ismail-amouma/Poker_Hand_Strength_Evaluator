@@ -20,10 +20,9 @@ The Poker Hand Strength Evaluator is a Python web application that allows users 
 
 1. Clone the repository.
 2. Set up a Python virtual environment.
-3. Install required dependencies from `requirements.txt`.
-4. Run the application.
-5. Access the web interface and input poker hands.
-6. Get instant hand strength evaluations and comparisons.
+3. Run the application.
+4. Access the web interface and input poker hands.
+5. Get instant hand strength evaluations and comparisons.
 
 ## Contributions
 
